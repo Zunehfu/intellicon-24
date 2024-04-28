@@ -5,10 +5,10 @@ body {
 }
 
 .header {
-    background-color: transparent;
+    background-color: rgba(57, 62, 129, 0.5);
     display: flex;
     justify-content: space-around;
-    height: 60px;
+    height: 85px;
     align-items: center;
     color: rgb(255, 255, 255);
     font-family: sans-serif;
@@ -19,7 +19,7 @@ body {
 .navbar-brand img {
     height: 130px;
     width: 130px;
-    padding-top: 35px;
+    padding-top: 30px;
 }
 
 .header-item {
@@ -63,7 +63,7 @@ body {
 }
 
 .content {
-    height: calc(97vh - 60px);
+    height: calc(97vh - 85px);
 }
 
 .container {
