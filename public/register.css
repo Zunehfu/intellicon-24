@@ -1,0 +1,109 @@
+body {
+    user-select: none;
+    background-image: url("../public/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Roboto;
+}
+
+.form-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    height: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+    display: grid;
+    width: 40%;
+    grid-template-areas:
+        "text-register text-register"
+        "form-item-fname form-item-lname"
+        "form-item-email form-item-email"
+        "form-item-category form-item-institute"
+        "form-item-contact form-item-contact"
+        "form-item-address form-item-address"
+        "btn-submit-container btn-submit-container";
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+}
+
+.form-item-fname {
+    grid-area: form-item-fname;
+}
+
+.form-item-lname {
+    grid-area: form-item-lname;
+}
+
+.form-item-email {
+    grid-area: form-item-email;
+}
+
+.form-item-category {
+    grid-area: form-item-category;
+}
+
+.form-item-institute {
+    grid-area: form-item-institute;
+}
+
+.form-item-contact {
+    grid-area: form-item-contact;
+}
+
+.form-item-address {
+    grid-area: form-item-address;
+}
+
+.form-item-fname,
+.form-item-lname,
+.form-item-category,
+.form-item-institute {
+    margin: 5px;
+}
+
+.form-item-email,
+.form-item-contact,
+.form-item-address {
+    margin: 5px;
+}
+
+.text-register {
+    grid-area: text-register;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn-submit-container {
+    grid-area: btn-submit-container;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit {
+    border: none;
+    height: 35px;
+    width: 200px;
+    border-radius: 6px;
+    font-family: Roboto;
+    margin: 5px;
+}
+
+.input-full,
+.input-half {
+    border: none;
+}
+
+.input-full:focus,
+.input-half:focus {
+    outline: none;
+}

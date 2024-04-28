@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/register.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body style="user-select: none;">
+        <div class="form-container">
+            <div class="form">
+                <div class="text-register">Register</div>
+                <div class="form-item-fname">
+                    <label for="fname">First name:</label><br />
+                    <input
+                        class="input-half"
+                        type="text"
+                        id="fname"
+                        name="fname"
+                        placeholder="First name"
+                    />
+                </div>
+                <div class="form-item-lname">
+                    <label for="lname">Last name:</label><br />
+                    <input
+                        class="input-half"
+                        type="text"
+                        id="lname"
+                        name="lname"
+                        placeholder="Last name"
+                    />
+                </div>
+                <div class="form-item-email">
+                    <label for="email">Email:</label><br />
+                    <input
+                        class="input-full"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                    />
+                </div>
+                <div class="form-item-category">
+                    <label for="category">Category:</label><br />
+                    <select name="category" id="category">
+                        <option value="school">School</option>
+                        <option value="university">University</option>
+                        <option value="open">Open</option>
+                    </select>
+                </div>
+                <div class="form-item-institute">
+                    <label for="institute">Institute:</label><br />
+                    <input
+                        class="input-half"
+                        type="text"
+                        id="institute"
+                        name="institute"
+                        placeholder="Institute"
+                    />
+                </div>
+                <div class="form-item-contact">
+                    <label for="contact">Contact No:</label><br />
+                    <input
+                        class="input-full"
+                        type="text"
+                        id="contact"
+                        name="contact"
+                        placeholder="Contact No"
+                    />
+                </div>
+                <div class="form-item-address">
+                    <label for="address">Address:</label><br />
+                    <input
+                        class="input-full"
+                        type="text"
+                        id="address"
+                        name="address"
+                        placeholder="Address"
+                    />
+                </div>
+                <div class="btn-submit">
+                    <button id="btn-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document
+                .getElementById("category")
+                .addEventListener("change", function () {
+                    const instituteInput = document.getElementById("institute");
+                    console.log("hello");
+
+                    if (this.value === "open") {
+                        instituteInput.disabled = true;
+                    } else {
+                        instituteInput.disabled = false;
+                    }
+                });
+        </script>
+
+        <script>
+            document
+                .getElementById("btn-submit")
+                .addEventListener("click", async function () {
+                    const fname = document.getElementById("fname");
+                    const lname = document.getElementById("lname");
+                    const email = document.getElementById("email");
+                    const category = document.getElementById("category");
+                    const institute = document.getElementById("institute");
+                    const contact = document.getElementById("contact");
+                    const address = document.getElementById("address");
+                    const btn = document.getElementById("btn-submit");
+
+                    try {
+                        const response = await fetch("/users", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                fname: fname.value,
+                                lname: lname.value,
+                                email: email.value,
+                                category: category.value,
+                                institute: institute.value,
+                                contact: contact.value,
+                                address: address.value,
+                            }),
+                        });
+
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+
+                        const responseData = await response.json();
+
+                        console.log(responseData);
+                        if (responseData.success) {
+                            fname.disabled = true;
+                            lname.disabled = true;
+                            email.disabled = true;
+                            category.disabled = true;
+                            institute.disabled = true;
+                            contact.disabled = true;
+                            address.disabled = true;
+                            btn.disabled = true;
+                            alert("Submission successful!");
+                        } else {
+                            alert("Submission unsuccessful!");
+                        }
+                    } catch (error) {
+                        console.error(
+                            "There was a problem with the fetch operation:",
+                            error
+                        );
+                        // Handle fetch error
+                    }
+                });
+        </script>
+    </body>
+</html>
