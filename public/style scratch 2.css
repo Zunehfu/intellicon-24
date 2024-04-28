@@ -1,0 +1,71 @@
+body {
+    background-image: url("images/HAND11.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+.navbar-brand img {
+    height: 130px;
+    width: 130px;
+    padding-top: 35px;
+}
+
+.header-item {
+    display: inline-flex;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.header-items {
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.header-logo {
+    display: inline-flex;
+    width: 100px;
+}
+
+.header-register {
+    display: inline-flex;
+    width: 100px;
+}
+
+.header-register-btn {
+    padding: 8px 30px;
+    background-color: #41b7db;
+    color: #ffffff;
+    border-radius: 45px;
+    transition: all 0.3s;
+    border: none;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: inherit;
+}
+
+.header-register-btn:hover {
+    background-color: #1d8ffa;
+    cursor: pointer;
+}
+
+.content {
+    height: calc(97vh - 60px);
+}
+
+.container {
+    height: 97vh;
+}
