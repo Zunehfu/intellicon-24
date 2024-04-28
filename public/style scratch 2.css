@@ -1,8 +1,9 @@
 body {
     background-image: url("./images/aibrain.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     user-select: none;
+    background-color: #000000;
 }
 
 .header {
@@ -61,8 +62,8 @@ body {
 
 .header-register-btn {
     padding: 8px 30px;
-    background-color: #ffee00;
-    color: #000000;
+    background-image: linear-gradient(to right, red, blue);
+    color: #ffffff;
     border-radius: 45px;
     transition: all 0.3s;
     border: none;
@@ -73,19 +74,79 @@ body {
 }
 
 .header-register-btn:hover {
-    background-color: #e3d403;
+    background-image: linear-gradient(to left, red, blue);
     cursor: pointer;
 }
 
 .content {
-    height: calc(97vh - 95px);
+    height: 600px;
 }
-
-.content-topic {
-    color: white;
+.timeline {
+    color: #ffee00;
+    text-align: center;
     text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 600px;
 }
 
-.container {
-    height: 97vh;
+.merch {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 600px;
+}
+
+.contact {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.card-container {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: solid red;
+    width: 100%;
+}
+
+.card {
+    height: 450px;
+    width: 290px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: solid rgb(255, 0, 0);
+    text-align: center;
+}
+.partners {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 600px;
+}
+.AIESEC {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 300px;
 }
