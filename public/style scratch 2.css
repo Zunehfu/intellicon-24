@@ -1,12 +1,12 @@
 body {
-    background-image: url("./images/HAND11.jpeg");
+    background-image: url("./images/aibrain.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     user-select: none;
 }
 
 .header {
-    background-color: rgba(57, 62, 129, 0.5);
+    background-color: rgba(113, 113, 113, 0.5);
     display: flex;
     justify-content: space-around;
     height: 85px;
@@ -41,7 +41,7 @@ body {
 .header-item:hover {
     border-bottom: solid 1.5px;
     border-top: solid 1.5px;
-    background-color: #41b7db;
+    background-color: #2712c4;
 }
 .header-items {
     width: auto;
@@ -61,8 +61,8 @@ body {
 
 .header-register-btn {
     padding: 8px 30px;
-    background-color: #41b7db;
-    color: #ffffff;
+    background-color: #ffee00;
+    color: #000000;
     border-radius: 45px;
     transition: all 0.3s;
     border: none;
@@ -73,12 +73,17 @@ body {
 }
 
 .header-register-btn:hover {
-    background-color: #1d8ffa;
+    background-color: #e3d403;
     cursor: pointer;
 }
 
 .content {
-    height: calc(97vh - 85px);
+    height: calc(97vh - 95px);
+}
+
+.content-topic {
+    color: white;
+    text-transform: uppercase;
 }
 
 .container {
