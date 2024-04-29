@@ -57,6 +57,7 @@
                                 id="email"
                                 name="email"
                                 placeholder="Email"
+                                
                             />
                         </div>
                         <div class="form-item-category">
@@ -85,6 +86,8 @@
                                 id="contact"
                                 name="contact"
                                 placeholder="Contact No"
+                                oninput="formatPhoneNumber()"
+                                value="+94"
                             />
                         </div>
                         <div class="form-item-address">
@@ -122,6 +125,36 @@
                     }
                 });
         </script>
+
+        <script>
+        function formatPhoneNumber() {
+    let inputBox = document.getElementById("contact");
+    let phoneNumber = inputBox.value.trim();
+
+    // Check if the input starts with '94'
+    if (phoneNumber.startsWith("+94")) {
+        // If it does, remove '94' from the beginning
+        phoneNumber = phoneNumber.substring(3);
+    }
+
+    if (phoneNumber == "+9") {
+        // If it does, remove '94' from the beginning
+        inputBox.value = ""
+        phoneNumber=""
+    }
+
+    if(phoneNumber.length > 9) {
+        phoneNumber = phoneNumber.substring(0, 9)
+    }
+
+
+
+    // Add '+94' to the beginning of the input
+    phoneNumber = "+94" + phoneNumber;
+
+    // Update the input value with the formatted phone number
+    inputBox.value = phoneNumber;
+}</script>
 
         <script>
             document

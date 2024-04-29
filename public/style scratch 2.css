@@ -1,0 +1,291 @@
+body {
+    background-image: url("./images/aibrain.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    user-select: none;
+    background-color: #000000;
+}
+
+.header {
+    background-color: rgba(113, 113, 113, 0.5);
+    display: flex;
+    justify-content: space-around;
+    height: 85px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-brand img {
+    height: 130px;
+    width: 130px;
+    padding-top: 30px;
+}
+
+.header-item {
+    display: inline-flex;
+    margin-left: 25px;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    height: 25px;
+    width: 95px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1.5px rgba(69, 29, 29, 0);
+    border-top: solid 1.5px rgba(169, 29, 29, 0);
+}
+
+.header-item:hover {
+    border-bottom: solid 1.5px;
+    border-top: solid 1.5px;
+    background-color: #2712c4;
+}
+.header-items {
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.header-logo {
+    display: inline-flex;
+    width: 100px;
+}
+
+.header-register {
+    display: inline-flex;
+    width: 100px;
+}
+
+.header-register-btn {
+    padding: 8px 30px;
+    background-image: linear-gradient(to right, red, blue);
+    color: #ffffff;
+    border-radius: 45px;
+    transition: all 0.3s;
+    border: none;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: inherit;
+}
+
+.header-register-btn:hover {
+    background-image: linear-gradient(to left, red, blue);
+    cursor: pointer;
+}
+
+.content {
+    height: 600px;
+}
+
+.timeline {
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    height: auto;
+    max-width: 1200px;
+    margin: 100px auto;
+    position: relative;
+}
+
+.timeline-container {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: solid blue;
+}
+
+.text-box {
+    padding: 20px 30px;
+    background: #ffffff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+    border: solid red;
+}
+
+.left-container {
+    left: 0;
+}
+
+.right-container {
+    left: 50%;
+}
+
+.timeline-container img {
+    position: absolute;
+    width: 40px;
+    border-radius: 50%;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+
+.right-container img {
+    left: -20px;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #ffffff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+}
+.merch {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 600px;
+}
+
+.book_section {
+    position: relative;
+    width: 100%;
+    left: 30px;
+    right: 30px;
+    height: auto;
+}
+
+.book_section .heading_container {
+    margin-bottom: 25px;
+    color: #ffffff;
+    width: 45%;
+}
+
+.book_section .form_container .form-control {
+    width: 45%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 25px;
+    border: 1px solid #999;
+    outline: none;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 5px;
+    outline: gray;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.book_section .form_container .form-control::-webkit-input-placeholder {
+    color: #fffefe;
+}
+
+.book_section .form_container .form-control:-ms-input-placeholder {
+    color: #ffffff;
+}
+
+.book_section .form_container .form-control::-ms-input-placeholder {
+    color: #ffffff;
+}
+
+.book_section .form_container .form-control::placeholder {
+    color: #ffffff;
+}
+
+.book_section .form_container .nice-select .current {
+    font-size: 16px;
+}
+
+.book_section .form_container button {
+    margin-top: 15px;
+    border: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 55px;
+    background-color: #ffbe33;
+    color: #ffffff;
+    border-radius: 45px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.book_section .form_container button:hover {
+    background-color: #e69c00;
+}
+
+.book_section .map_container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: calc(50%-10px); /* Adjust as needed */
+    height: 380px; /* Adjust as needed */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.book_section .map_container #googleMap {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+.contact {
+    padding-top: 30px;
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.card-container {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: solid red;
+    width: 100%;
+}
+
+.card {
+    height: 450px;
+    width: 290px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: solid rgb(255, 0, 0);
+    text-align: center;
+}
+.partners {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 600px;
+}
+.AIESEC {
+    color: #ffee00;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    height: 300px;
+}
