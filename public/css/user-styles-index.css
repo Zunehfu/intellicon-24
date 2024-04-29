@@ -1,5 +1,5 @@
 body {
-    background-image: url("./images/aibrain.jpg");
+    background-image: url("../img/aibrain.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     user-select: none;
@@ -100,9 +100,9 @@ body {
 .timeline-frame {
     position: relative;
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 0px auto;
 }
-.container {
+.container-for-timeline {
     padding: 10px 50px;
     position: relative;
     width: 50%;
@@ -123,22 +123,22 @@ body {
     }
 }
 
-/* .container:nth-child(1) {
+/* .container-for-timeline:nth-child(1) {
     animation-delay: 0s;
 } */
-.container:nth-child(2) {
+.container-for-timeline:nth-child(2) {
     animation-delay: 1s;
 }
-.container:nth-child(3) {
+.container-for-timeline:nth-child(3) {
     animation-delay: 2s;
 }
-.container:nth-child(4) {
+.container-for-timeline:nth-child(4) {
     animation-delay: 3s;
 }
-.container:nth-child(5) {
+.container-for-timeline:nth-child(5) {
     animation-delay: 4s;
 }
-.container:nth-child(6) {
+.container-for-timeline:nth-child(6) {
     animation-delay: 5s;
 }
 
@@ -157,7 +157,7 @@ body {
     left: 50%;
 }
 
-.container img {
+.container-for-timeline img {
     position: absolute;
     width: 40px;
     border-radius: 50%;
@@ -232,7 +232,7 @@ body {
     .timeline-frame::after {
         left: 31px;
     }
-    .container {
+    .container-for-timeline {
         width: 100%;
         padding-left: 80px;
         padding-right: 25px;
@@ -263,7 +263,7 @@ body {
 
 /*----------merch------------*/
 
-.merch {
+.merch-text {
     color: #ffee00;
     text-align: center;
     text-transform: uppercase;
@@ -272,6 +272,280 @@ body {
     font-weight: bold;
     height: 600px;
 }
+
+/*=============== GOOGLE FONTS ===============*/
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(34, 52%, 54%);
+    --first-color-light: hsl(34, 52%, 64%);
+    --first-color-lighten: hsl(34, 52%, 68%);
+    --black-color: hsl(0, 0%, 4%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Smooch", cursive;
+    --biggest-font-size: 6rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 17rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+    }
+}
+
+/*=============== BASE ===============*/
+/* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} 
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--first-color);
+    color: var(--black-color);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+*/
+
+.merch > * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--first-color);
+    color: var(--black-color);
+}
+
+.merch img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container-for-merch {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+.merch-main {
+    overflow: hidden;
+}
+
+/*=============== HOME ===============*/
+
+.merch-container {
+    /* height: 100vh; */
+    padding-block: 9rem 2rem;
+    display: grid;
+    align-items: center;
+    row-gap: 6rem;
+}
+
+.merch-content {
+    position: relative;
+    display: grid;
+}
+
+.merch-circle {
+    position: absolute;
+    inset: 0;
+    width: 280px;
+    height: 280px;
+    border: solid 3px var(--first-color-lighten);
+    border-radius: 50%;
+    margin-inline: auto;
+    display: grid;
+    place-items: center;
+}
+
+.merch-subcircle {
+    width: 246px;
+    height: 246px;
+    border: solid 12px var(--first-color-light);
+    border-radius: 50%;
+}
+
+.merch-title {
+    position: absolute;
+    font-size: var(--biggest-font-size);
+    font-family: var(--second-font);
+    font-weight: var(--font-regular);
+}
+
+.merch-img {
+    width: 250px;
+    filter: drop-shadow(-8px 8px 16px hsla(34, 51%, 8%, 0.4));
+    margin: 0 auto 2rem;
+}
+
+.merch-article {
+    text-align: center;
+}
+
+.merch-product,
+.merch-price {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.25rem;
+}
+
+/* Swiper class */
+.swiper {
+    margin-inline: initial;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: "";
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    top: initial;
+    bottom: 0;
+    font-size: 1.5rem;
+    color: var(--black-color);
+}
+
+.swiper-button-prev {
+    left: calc(50% - 8rem);
+}
+
+.swiper-button-next {
+    right: calc(50% - 8rem);
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 330px) {
+    .container-for-merch {
+        margin-inline: 1rem;
+    }
+
+    .merch-img {
+        width: 280px;
+        margin-bottom: 3rem;
+    }
+
+    .merch-title {
+        font-size: 5rem;
+    }
+
+    .merch-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .merch-subcircle {
+        width: 206px;
+        height: 206px;
+    }
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 768px) {
+    .merch-article {
+        scale: 0.6;
+        transition: scale 0.3s;
+    }
+
+    .merch-product,
+    .merch-price {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    /* swiper class */
+    .merch-section .swiper-slide-active {
+        scale: 1;
+    }
+
+    .swiper-slide-active :is(.merch-product, .merch-price) {
+        opacity: 1;
+    }
+}
+
+/* For large devices */
+
+@media screen and (min-width: 1152px) {
+    .container-for-merch {
+        margin-inline: auto;
+    }
+
+    .merch-container {
+        height: initial;
+        padding-top: 10rem;
+    }
+
+    .merch-swiper {
+        max-width: 1100px;
+        margin-inline: auto;
+    }
+
+    .merch-circle {
+        width: 550px;
+        height: 550px;
+        border-width: 4px;
+    }
+
+    .merch-subcircle {
+        width: 485px;
+        height: 485px;
+        border-width: 20px;
+    }
+
+    .merch-article {
+        width: 450px;
+        scale: 0.55;
+    }
+
+    .merch-img {
+        width: 450px;
+        margin-bottom: 5rem;
+    }
+
+    .merch-product,
+    .merch-price {
+        font-size: var(--h2-font-size);
+    }
+    .swiper-button-prev {
+        left: calc(50% - 12rem);
+        font-size: 2rem;
+    }
+    .swiper-button-next {
+        right: calc(50% - 12rem);
+        font-size: 2rem;
+    }
+}
+
 /*--------------------*/
 
 /*------------- faq -----------------*/

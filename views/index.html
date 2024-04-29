@@ -4,19 +4,35 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>IntelliCon 2.0</title>
-        <link rel="stylesheet" href="../public/style scratch 2.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <!--=============== FAVICON ===============-->
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-            rel="stylesheet"/>
+            rel="shortcut icon"
+            href="assets/img/favicon.png"
+            type="image/x-icon"
+        />
+
+        <!--=============== REMIXICONS ===============-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.min.css"
+        />
+
+        <link rel="stylesheet" href="../public/css/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="../public/css/user-styles-index.css" />
+
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Smooch&display=swap" rel="stylesheet">
+        
     </head>
     <body>
         <!-- ---------------------------------------------------------------------------------------------------- -->
         <div class="header">
             <div class="header-logo">
                 <a class="navbar-brand" href="index.html">
-                    <img src="../public/images/IntelliCon Logo1.png" alt="Logo">
+                    <img src="../public/img/IntelliCon Logo1.png" alt="Logo">
                 </a>
             </div>
             <div class="header-items">
@@ -37,8 +53,8 @@
         <div class="timeline">
             <div>-------------------------timeline</div>
             <div class="timeline-frame">
-                <div class="container left-container">
-                    <img src="../public/images/google.png" />
+                <div class="container-for-timeline left-container">
+                    <img src="../public/img/google.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -51,8 +67,8 @@
                         <span class="left-container-arrow"></span>
                     </div>
                 </div>
-                <div class="container right-container">
-                    <img src="../public/images/amazon.png" />
+                <div class="container-for-timeline right-container">
+                    <img src="../public/img/amazon.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -65,8 +81,8 @@
                         <span class="right-container-arrow"></span>
                     </div>
                 </div>
-                <div class="container left-container">
-                    <img src="../public/images/tesla.png" />
+                <div class="container-for-timeline left-container">
+                    <img src="../public/img/toyota.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -79,8 +95,8 @@
                         <span class="left-container-arrow"></span>
                     </div>
                 </div>
-                <div class="container right-container">
-                    <img src="../public/images/toyota.png" />
+                <div class="container-for-timeline right-container">
+                    <img src="../public/img/tesla.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -93,8 +109,8 @@
                         <span class="right-container-arrow"></span>
                     </div>
                 </div>
-                <div class="container left-container">
-                    <img src="../public/images/flipkart.png" />
+                <div class="container-for-timeline left-container">
+                    <img src="../public/img/flipkart.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -107,8 +123,8 @@
                         <span class="left-container-arrow"></span>
                     </div>
                 </div>
-                <div class="container right-container">
-                    <img src="../public/images/youtube.png" />
+                <div class="container-for-timeline right-container">
+                    <img src="../public/img/youtube.png" />
                     <div class="text-box">
                         <h2>Lorem ipsum</h2>
                         <small>Lorem ipsum</small>
@@ -126,7 +142,82 @@
 
         <!-- ---------------------------------------------------------------------------------------------------- -->
 
-        <div class="merch">Gear up with Style and Purpose</div>
+        
+        <div class="merch">
+            <main class="merch-main">
+                <section>
+                    ----------------------------merch  
+                </section>
+                <section class="merch-section">
+                    <div class="merch-container container-for-merch">
+                        <div class="merch-content">
+                            <div class="merch-circle">
+                                <div class="merch-subcircle"></div>
+                                <h1 class="merch-title">Loremipsum</h1>
+                            </div>
+
+                            <div class="merch-swiper swiper">
+                                <div class="swiper-wrapper">
+                                    <article class="merch-article swiper-slide">
+                                        <img
+                                            src="../public/img/clothing-1.png"
+                                            alt="image"
+                                            class="merch-img"
+                                        />
+                                        <h2 class="merch-product">Lorem</h2> 
+                                        <h3 class="merch-price">ipsum</h2>
+                                    </article>
+
+                                    <article class="merch-article swiper-slide">
+                                        <img
+                                            src="../public/img/clothing-2.png"
+                                            alt="image"
+                                            class="merch-img"
+                                        />
+                                        <h2 class="merch-product">Lorem</h2>
+                                        <h3 class="merch-price">ipsum</h2>
+                                    </article>
+
+                                    <article class="merch-article swiper-slide">
+                                        <img
+                                            src="../public/img/clothing-3.png"
+                                            alt="image"
+                                            class="merch-img"
+                                        />
+                                        <h2 class="merch-product">Lorem</h2>
+                                        <h3 class="merch-price">ipsum</h2>
+                                    </article>
+
+                                    <article class="merch-article swiper-slide">
+                                        <img
+                                            src="../public/img/clothing-4.png"
+                                            alt="image"
+                                            class="merch-img"
+                                        />
+                                        <h2 class="merch-product">Lorem</h2>
+                                        <h3 class="merch-price">ipsum</h2>
+                                    </article>
+
+                                    <article class="merch-article swiper-slide">
+                                        <img
+                                            src="../public/img/clothing-5.png"
+                                            alt="image"
+                                            class="merch-img"
+                                        />
+                                        <h2 class="merch-product">Lorem</h2>
+                                        <h3 class="merch-price">ipsum</h2>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div>
+                            <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
+
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
 
         <!-- ---------------------------------------------------------------------------------------------------- -->
 
@@ -162,7 +253,7 @@
 
         <div class="card-container">
             <div class="card">
-                <img src="../public/images/man1.jpeg" />
+                <img src="../public/img/man1.jpeg" />
                 <div class="card-content">
                     <h1>Member 1</h1>
                     <p>
@@ -175,7 +266,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="../public/images/woman1.jpeg" />
+                <img src="../public/img/woman1.jpeg" />
                 <div class="card-content"></div>
                 <h1>Member 2</h1>
                 <p>
@@ -187,7 +278,7 @@
                 </p>
             </div>
             <div class="card">
-                <img src="../public/images/man2.jpeg" />
+                <img src="../public/img/man2.jpeg" />
                 <div class="card-content"></div>
                 <h1>Member 3</h1>
                 <p>
@@ -209,5 +300,9 @@
         <div class="AIESEC">AIESEC IN SLIIT</div>
 
         <!-- ---------------------------------------------------------------------------------------------------- -->
+        
+        <script src="../public/js/scrollreveal.min.js"></script>
+        <script src="../public/js/swiper-bundle.min.js"></script>
+        <script src="../public/js/main.js"></script>
     </body>
 </html>
