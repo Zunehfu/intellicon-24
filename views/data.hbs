@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/data.css" />
+        <style>
+            .user-card {
+                border: solid 1px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            .user-id {
+                background-color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        Total registrations: {{count}}
+        {{#each data}}
+        <div class="user-card">
+            <div class="user-id">[{{@index}}] ID: {{_id}}</div>
+            <table>
+            <tr><td>First name:</td><td>{{fname}}</td></tr>
+            <tr><td>Last name:</td><td>{{lname}}</td></tr>
+            <tr><td>Email:</td><td>{{email}}</td></tr>
+            <tr><td>Category:</td><td>{{category}}</td></tr>
+            <tr><td>Institute:</td><td>{{institute}}</td></tr>
+            <tr><td>Contact No:</td><td>{{contact}}</td></tr>
+            <tr><td>Address:</td><td>{{address}}</td></tr>
+            <tr><td>Registered At:</td><td>{{registeredAtFormatted}}</td></tr>
+            </table>
+        </div>
+        {{/each}}
+    </body>
+</html>

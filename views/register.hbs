@@ -6,84 +6,106 @@
         <title>Document</title>
         <link rel="stylesheet" href="/register.css" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet"
+        />
     </head>
-    <body style="user-select: none;">
+    <body>
         <div class="form-container">
-            <div class="form">
-                <div class="text-register">Register</div>
-                <div class="form-item-fname">
-                    <label for="fname">First name:</label><br />
-                    <input
-                        class="input-half"
-                        type="text"
-                        id="fname"
-                        name="fname"
-                        placeholder="First name"
-                    />
-                </div>
-                <div class="form-item-lname">
-                    <label for="lname">Last name:</label><br />
-                    <input
-                        class="input-half"
-                        type="text"
-                        id="lname"
-                        name="lname"
-                        placeholder="Last name"
-                    />
-                </div>
-                <div class="form-item-email">
-                    <label for="email">Email:</label><br />
-                    <input
-                        class="input-full"
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                    />
-                </div>
-                <div class="form-item-category">
-                    <label for="category">Category:</label><br />
-                    <select name="category" id="category">
-                        <option value="school">School</option>
-                        <option value="university">University</option>
-                        <option value="open">Open</option>
-                    </select>
-                </div>
-                <div class="form-item-institute">
-                    <label for="institute">Institute:</label><br />
-                    <input
-                        class="input-half"
-                        type="text"
-                        id="institute"
-                        name="institute"
-                        placeholder="Institute"
-                    />
-                </div>
-                <div class="form-item-contact">
-                    <label for="contact">Contact No:</label><br />
-                    <input
-                        class="input-full"
-                        type="text"
-                        id="contact"
-                        name="contact"
-                        placeholder="Contact No"
-                    />
-                </div>
-                <div class="form-item-address">
-                    <label for="address">Address:</label><br />
-                    <input
-                        class="input-full"
-                        type="text"
-                        id="address"
-                        name="address"
-                        placeholder="Address"
-                    />
-                </div>
-                <div class="btn-submit">
-                    <button id="btn-submit">Submit</button>
+            <div class="form-space">
+                <div class="form-strip"></div>
+                <div class="form-left"></div>
+                <div class="form">
+                    <div class="form-final">
+                        <div class="logo">logo</div>
+                        <div class="text-register">Create An Account</div>
+                        <div class="form-item-fname">
+                            <label for="fname">First name</label><br />
+                            <input
+                                class="input-half"
+                                type="text"
+                                id="fname"
+                                name="fname"
+                                placeholder="First name"
+                            />
+                        </div>
+                        <div class="form-item-lname">
+                            <label for="lname">Last name</label><br />
+                            <input
+                                class="input-half"
+                                type="text"
+                                id="lname"
+                                name="lname"
+                                placeholder="Last name"
+                            />
+                        </div>
+                        <div class="form-item-email">
+                            <label for="email">Email</label><br />
+                            <input
+                                class="input-full"
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                
+                            />
+                        </div>
+                        <div class="form-item-category">
+                            <label for="category">Category</label><br />
+                            <select class="cat" name="category" id="category">
+                                <option value="school">School</option>
+                                <option value="university">University</option>
+                                <option value="open">Open</option>
+                            </select>
+                        </div>
+                        <div class="form-item-institute">
+                            <label for="institute">Institute</label><br />
+                            <input
+                                class="input-half"
+                                type="text"
+                                id="institute"
+                                name="institute"
+                                placeholder="Institute"
+                            />
+                        </div>
+                        <div class="form-item-contact">
+                            <label for="contact">Contact No</label><br />
+                            <input
+                                class="input-full"
+                                type="text"
+                                id="contact"
+                                name="contact"
+                                placeholder="Contact No"
+                                oninput="formatPhoneNumber()"
+                                value="+94"
+                            />
+                        </div>
+                        <div class="form-item-address">
+                            <label for="address">Address</label><br />
+                            <input
+                                class="input-full"
+                                type="text"
+                                id="address"
+                                name="address"
+                                placeholder="Address"
+                            />
+                        </div>
+                        <div class="btn-submit-container">
+                            <button id="btn-submit" class="btn-submit">
+                                Register
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -97,11 +119,42 @@
 
                     if (this.value === "open") {
                         instituteInput.disabled = true;
+                        instituteInput.value = "";
                     } else {
                         instituteInput.disabled = false;
                     }
                 });
         </script>
+
+        <script>
+        function formatPhoneNumber() {
+    let inputBox = document.getElementById("contact");
+    let phoneNumber = inputBox.value.trim();
+
+    // Check if the input starts with '94'
+    if (phoneNumber.startsWith("+94")) {
+        // If it does, remove '94' from the beginning
+        phoneNumber = phoneNumber.substring(3);
+    }
+
+    if (phoneNumber == "+9") {
+        // If it does, remove '94' from the beginning
+        inputBox.value = ""
+        phoneNumber=""
+    }
+
+    if(phoneNumber.length > 9) {
+        phoneNumber = phoneNumber.substring(0, 9)
+    }
+
+
+
+    // Add '+94' to the beginning of the input
+    phoneNumber = "+94" + phoneNumber;
+
+    // Update the input value with the formatted phone number
+    inputBox.value = phoneNumber;
+}</script>
 
         <script>
             document
@@ -117,7 +170,7 @@
                     const btn = document.getElementById("btn-submit");
 
                     try {
-                        const response = await fetch("/users", {
+                        const response = await fetch("/competitors", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
