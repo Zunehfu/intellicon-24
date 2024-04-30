@@ -27,6 +27,23 @@ let swiperHome = new Swiper(".merch-swiper", {
     },
 });
 
+let swiperPartner = new Swiper(".partners-swiper-container", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+
+    autoplay: {
+        delay: 2000, // Delay between transitions in milliseconds (5 seconds in this case)
+        disableOnInteraction: false, // Continue autoplay even when user interacts with swiper
+    },
+    // navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    // },
+    slidesPerView: 4,
+    spaceBetween: 10,
+});
+
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
     origin: "top",
@@ -35,7 +52,16 @@ const sr = ScrollReveal({
     //reset: true //animations repeat
 });
 
+const srl = ScrollReveal({
+    origin: "right",
+    distance: "60px",
+    duration: 2500,
+    //reset: true //animations repeat
+});
+
 sr.reveal(".merch-swiper");
+// sr.reveal(".partners", { scale: 1.2 });
+sr.reveal(".timeline", { scale: 1.2, delay: 300 });
 sr.reveal(".merch-circle", { scale: 1.5, delay: 300 });
 sr.reveal(".merch-subcircle", { scale: 1.5, delay: 500 });
 sr.reveal(".merch-title", { scale: 1, origin: "bottom", delay: 1200 });

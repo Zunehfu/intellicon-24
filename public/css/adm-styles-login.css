@@ -4,6 +4,7 @@
     align-items: center;
     height: 97vh;
     user-select: none;
+    position: relative;
 }
 .label-token {
     color: white;
