@@ -62,7 +62,7 @@ body {
 
 .header-register-btn {
     padding: 8px 30px;
-    background-image: linear-gradient(to right, red, blue);
+    background-image: linear-gradient(to right, rgb(0, 145, 255), blue);
     color: #ffffff;
     border-radius: 45px;
     transition: all 0.3s;
@@ -74,7 +74,7 @@ body {
 }
 
 .header-register-btn:hover {
-    background-image: linear-gradient(to left, red, blue);
+    background-image: linear-gradient(to left, rgb(0, 145, 255), blue);
     cursor: pointer;
 }
 
