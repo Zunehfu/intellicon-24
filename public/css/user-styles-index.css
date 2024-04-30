@@ -1,7 +1,7 @@
 body {
-    background-image: url("../img/aibrain.jpg");
+    /* background-image: url("../img/aibrain.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain; */
     user-select: none;
     background-color: #000000;
 }
@@ -630,13 +630,6 @@ body {
     text-align: center;
 }
 .partners {
-    color: #ffee00;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    font-size: 40px;
-    font-weight: bold;
-    height: 600px;
 }
 .AIESEC {
     color: #ffee00;
