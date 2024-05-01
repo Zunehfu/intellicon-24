@@ -35,7 +35,7 @@
                                 class="input-half"
                                 type="text"
                                 id="fname"
-                                name="fname"
+                                name="firstName"
                                 placeholder="First name"
                             />
                         </div>
@@ -45,7 +45,7 @@
                                 class="input-half"
                                 type="text"
                                 id="lname"
-                                name="lname"
+                                name="lastName"
                                 placeholder="Last name"
                             />
                         </div>
@@ -127,34 +127,28 @@
         </script>
 
         <script>
-        function formatPhoneNumber() {
-    let inputBox = document.getElementById("contact");
-    let phoneNumber = inputBox.value.trim();
+            function formatPhoneNumber() {
+                let inputBox = document.getElementById("contact");
+                let phoneNumber = inputBox.value.trim();
 
-    // Check if the input starts with '94'
-    if (phoneNumber.startsWith("+94")) {
-        // If it does, remove '94' from the beginning
-        phoneNumber = phoneNumber.substring(3);
-    }
+                if (phoneNumber.startsWith("+94")) {
+                    phoneNumber = phoneNumber.substring(3);
+                }
 
-    if (phoneNumber == "+9") {
-        // If it does, remove '94' from the beginning
-        inputBox.value = ""
-        phoneNumber=""
-    }
+                if (phoneNumber == "+9") {
+                    inputBox.value = ""
+                    phoneNumber=""
+                }
 
-    if(phoneNumber.length > 9) {
-        phoneNumber = phoneNumber.substring(0, 9)
-    }
+                if(phoneNumber.length > 9) {
+                    phoneNumber = phoneNumber.substring(0, 9)
+                }
 
+                phoneNumber = "+94" + phoneNumber;
 
-
-    // Add '+94' to the beginning of the input
-    phoneNumber = "+94" + phoneNumber;
-
-    // Update the input value with the formatted phone number
-    inputBox.value = phoneNumber;
-}</script>
+                inputBox.value = phoneNumber;
+            }
+        </script>
 
         <script>
             document
@@ -176,8 +170,8 @@
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
-                                fname: fname.value,
-                                lname: lname.value,
+                                firstName: fname.value,
+                                lastName: lname.value,
                                 email: email.value,
                                 category: category.value,
                                 institute: institute.value,

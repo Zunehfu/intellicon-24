@@ -1,73 +1,46 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const Database = require("better-sqlite3");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const moment = require("moment");
 
 const app = express();
+
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+
 dotenv.config({ path: "./.env" });
 
-mongoose
-    .connect(process.env.connection_str, {
-        // useNewUrlParser: true
-    })
-    .then((conn) => {
-        console.log(conn);
-        console.log("Database connection established!");
-    })
-    .catch((err) => {
-        console.log(err);
-        console.log("There is an issue with database connection!");
-    });
+const db = new Database("server.db", { verbose: console.log });
 
-const competitorSchema = new mongoose.Schema({
-    fname: {
-        type: String,
-        required: [true, "`fname` is a required field!"],
-        trim: true,
-    },
-    lname: {
-        type: String,
-        required: [true, "`lname` is a required field!"],
-        trim: true,
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: [true, "`email` is a required field!"],
-        trim: true,
-    },
-    category: {
-        type: String,
-        required: [true, "`category` is a required field!"],
-        trim: true,
-    },
-    institute: {
-        type: String,
-        trim: true,
-    },
-    contact: {
-        type: String,
-        required: [true, "`contact` is a required field!"],
-        trim: true,
-    },
-    address: {
-        type: String,
-        required: [true, "`address` is a required field!"],
-        trim: true,
-    },
-    registeredAt: {
-        type: Date,
-        required: [true, "`registeredAt` is a required field!"],
-    },
-});
-const competitor = mongoose.model("Competitor", competitorSchema);
+const tbl_competitors = `CREATE TABLE IF NOT EXISTS competitors(
+    id INTEGER PRIMARY KEY, 
+    firstName TEXT NOT NULL, 
+    lastName TEXT NOT NULL, 
+    email TEXT NOT NULL UNIQUE, 
+    category TEXT NOT NULL, 
+    institute TEXT, 
+    contact TEXT NOT NULL, 
+    address TEXT NOT NULL, 
+    registeredAtObject TEXT NOT NULL, 
+    registeredAtFormatted TEXT NOT NULL
+)`;
+
+db.exec(tbl_competitors);
+
+const stmt__insert__tbl_competitors = db.prepare(
+    "INSERT INTO competitors(firstName, lastName, email, category, institute, contact, address, registeredAtObject, registeredAtFormatted) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+);
+
+const stmt__getall__tbl_competitors = db.prepare("SELECT * FROM competitors");
+
+const stmt__get__tbl_competitors = db.prepare(
+    "SELECT * FROM competitors WHERE id = ?"
+);
 
 const getRegisterPage = async (req, res, next) => {
     res.render("register.hbs");
@@ -121,15 +94,10 @@ const protectRoute = async (req, res, next) => {
         res.json(error);
     }
 };
+
 const showCompetitors = async (req, res, next) => {
     try {
-        const competitors = await competitor.find();
-
-        for (let i = 0; i < competitors.length; i++) {
-            competitors[i].registeredAtFormatted = moment(
-                competitors[i].registeredAt
-            ).format("hh:mm A | DD.MM.YYYY");
-        }
+        const competitors = stmt__getall__tbl_competitors.all();
 
         res.render("data.hbs", {
             count: competitors.length,
@@ -139,10 +107,45 @@ const showCompetitors = async (req, res, next) => {
         res.json(error);
     }
 };
+
 const addCompetitor = async (req, res, next) => {
     try {
-        req.body.registeredAt = Date.now();
-        const data = await competitor.create(req.body);
+        console.log("-- New competitor registration request recieved");
+        console.log(
+            "\n==================================================== start"
+        );
+        console.log("-- request object --");
+        console.log(req.body);
+
+        const dateObj = new Date();
+        req.body.registeredAtObject = dateObj.toISOString();
+        req.body.registeredAtFormatted = moment(dateObj).format(
+            "hh:mm A | DD.MM.YYYY"
+        );
+
+        console.log("-- modified request object --");
+        console.log(req.body);
+        console.log("-- SQLite query --");
+
+        const result = stmt__insert__tbl_competitors.run(
+            req.body.firstName,
+            req.body.lastName,
+            req.body.email,
+            req.body.category,
+            req.body.institute,
+            req.body.contact,
+            req.body.address,
+            req.body.registeredAtObject,
+            req.body.registeredAtFormatted
+        );
+        const data = stmt__get__tbl_competitors.get(result.lastInsertRowid);
+
+        console.log("-- fetch response object --");
+        console.log({ success: true, data });
+        console.log(
+            "==================================================== end\n"
+        );
+
         res.json({ success: true, data });
     } catch (err) {
         console.log(err);
