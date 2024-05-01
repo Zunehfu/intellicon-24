@@ -67,6 +67,7 @@ const stmt__insert__tbl_questions = db.prepare(
         askedAtFormatted
     ) VALUES(?, ?, ?, ?, ?, ?, ?)`
 );
+
 const stmt__getall__tbl_competitors = db.prepare("SELECT * FROM competitors");
 const stmt__getall__tbl_questions = db.prepare("SELECT * FROM questions");
 const stmt__get__tbl_competitors = db.prepare(
