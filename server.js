@@ -43,6 +43,8 @@ const sql_tables = `
     );
 `;
 
+db.exec(sql_tables);
+
 const stmt__insert__tbl_competitors = db.prepare(
     `INSERT INTO competitors(
         firstName, 
@@ -67,7 +69,6 @@ const stmt__insert__tbl_questions = db.prepare(
         askedAtFormatted
     ) VALUES(?, ?, ?, ?, ?, ?, ?)`
 );
-
 const stmt__getall__tbl_competitors = db.prepare("SELECT * FROM competitors");
 const stmt__getall__tbl_questions = db.prepare("SELECT * FROM questions");
 const stmt__get__tbl_competitors = db.prepare(
@@ -76,46 +77,6 @@ const stmt__get__tbl_competitors = db.prepare(
 const stmt__get__tbl_questions = db.prepare(
     "SELECT * FROM questions WHERE id = ?"
 );
-
-db.exec(sql_tables);
-
-const getRegisterPage = async (req, res, next) => {
-    res.render("register.hbs");
-};
-
-const getAdminLogin = async (req, res, next) => {
-    let token = req.cookies.techno;
-
-    if (
-        token &&
-        jwt.verify(token, process.env.secret_str).admin ==
-            process.env.admin_verification_str
-    ) {
-        return res.redirect("/competitors");
-    }
-
-    res.render("admin-login.hbs");
-};
-const verifyAdminLogin = async (req, res, next) => {
-    if (req.body.token !== process.env.admin_token)
-        return res.render("admin-login.hbs", { err: "This token is invalid!" });
-
-    const token = jwt.sign(
-        { admin: process.env.admin_verification_str },
-        process.env.secret_str,
-        {
-            expiresIn: process.env.login_expires,
-        }
-    );
-
-    res.cookie("techno", token, {
-        expires: new Date(Date.now() + parseInt(process.env.login_expires)),
-        secure: false,
-        httpOnly: false,
-    });
-
-    res.redirect("/competitors");
-};
 
 const protectRoute = async (req, res, next) => {
     try {
@@ -130,10 +91,59 @@ const protectRoute = async (req, res, next) => {
 
         next();
     } catch (error) {
+        console.log("Err: protectRoute ---------------");
+        console.log(err);
+        console.log("---------------------------------");
         res.json(error);
     }
 };
+const getAdminLogin = async (req, res, next) => {
+    try {
+        let token = req.cookies.techno;
 
+        if (
+            token &&
+            jwt.verify(token, process.env.secret_str).admin ==
+                process.env.admin_verification_str
+        ) {
+            return res.redirect("/competitors");
+        }
+
+        res.render("admin-login.hbs");
+    } catch (err) {
+        console.log("Err: getAdminLogin ---------------");
+        console.log(err);
+        console.log("----------------------------------");
+    }
+};
+const verifyAdminLogin = async (req, res, next) => {
+    try {
+        if (req.body.token !== process.env.admin_token)
+            return res.render("admin-login.hbs", {
+                err: "This token is invalid!",
+            });
+
+        const token = jwt.sign(
+            { admin: process.env.admin_verification_str },
+            process.env.secret_str,
+            {
+                expiresIn: process.env.login_expires,
+            }
+        );
+
+        res.cookie("techno", token, {
+            expires: new Date(Date.now() + parseInt(process.env.login_expires)),
+            secure: false,
+            httpOnly: false,
+        });
+
+        res.redirect("/competitors");
+    } catch (err) {
+        console.log("Err: verifyAdminLogin --------------");
+        console.log(err);
+        console.log("------------------------------------");
+    }
+};
 const showCompetitors = async (req, res, next) => {
     try {
         const competitors = stmt__getall__tbl_competitors.all();
@@ -143,6 +153,24 @@ const showCompetitors = async (req, res, next) => {
             data: competitors,
         });
     } catch (error) {
+        console.log("Err: showCompetitors ------------");
+        console.log(err);
+        console.log("---------------------------------");
+        res.json(error);
+    }
+};
+const showQuestions = async (req, res, next) => {
+    try {
+        const questions = stmt__getall__tbl_questions.all();
+
+        res.render("questions.hbs", {
+            count: questions.length,
+            data: questions,
+        });
+    } catch (error) {
+        console.log("Err: showQuestions ----------------");
+        console.log(err);
+        console.log("---------------------------------");
         res.json(error);
     }
 };
@@ -186,11 +214,21 @@ const addCompetitor = async (req, res, next) => {
 
         res.json({ success: true, data });
     } catch (err) {
+        console.log("Err: addCompetitor ------------");
         console.log(err);
+        console.log("---------------------------------");
         res.json({ success: false, data: err });
     }
 };
-
+const getRegisterPage = async (req, res, next) => {
+    try {
+        res.render("register.hbs");
+    } catch (err) {
+        console.log("Err: getRegisterPage ---------------");
+        console.log(err);
+        console.log("------------------------------------");
+    }
+};
 const addQuestion = async (req, res, next) => {
     try {
         console.log("** New Question adition request recieved");
@@ -229,20 +267,10 @@ const addQuestion = async (req, res, next) => {
 
         res.json({ success: true, data });
     } catch (err) {
+        console.log("Err: addQuestion ----------------");
         console.log(err);
+        console.log("---------------------------------");
         res.json({ success: false, data: err });
-    }
-};
-const showQuestions = async (req, res, next) => {
-    try {
-        const questions = stmt__getall__tbl_questions.all();
-
-        res.render("questions.hbs", {
-            count: questions.length,
-            data: questions,
-        });
-    } catch (error) {
-        res.json(error);
     }
 };
 
