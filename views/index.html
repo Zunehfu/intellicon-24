@@ -23,8 +23,30 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.min.css"
         />
+
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
     </head>
     <body>
+        <header class="header">
+            <div class="navlogo">
+                <img src="../public/img/IntelliCon Logo1.png" alt="nav-logo" />
+            </div>
+            <input type="checkbox" id="check" />
+            <label for="check" class="icons">
+                <i class="bx bx-menu" id="menu-icon"></i>
+                <i class="bx bx-x" id="close-icon"></i>
+            </label>
+            <nav class="navbar">
+                <a href="#" style="--i: 0">Home</a>
+                <a href="#" style="--i: 1">Schedule</a>
+                <a href="#" style="--i: 2">CodeRun</a>
+                <a href="#" style="--i: 3">FAQ</a>
+                <a href="#" style="--i: 4">About Us</a>
+            </nav>
+        </header>
         <!-- =================================== -->
 
         <div class="hero-section">
@@ -432,158 +454,17 @@
         <script src="../public/js/swiper-bundle.min.js"></script>
         <script src="../public/js/main.js"></script>
         <script>
-            //script by GameOvr for glitch-text dynamic centering and timeline-line height control and live tip position detection
-
             const tel = document.getElementById("glitch-text");
             tel.style.left =
-                ((window.innerWidth - tel.offsetWidth) / 2).toString() + "px";
-
-            let viewportOffsetY = window.scrollY || window.pageYOffset;
-
-            const el = document.documentElement;
-            const rel = document.getElementById("timeline");
-            const lel = document.getElementById("timeline-line");
-            const el_cardarr = [
-                document.getElementById("timeline-card-1"),
-                document.getElementById("timeline-card-2"),
-                document.getElementById("timeline-card-3"),
-                document.getElementById("timeline-card-4"),
-                document.getElementById("timeline-card-5"),
-                document.getElementById("timeline-card-6"),
-            ];
-            let rect_imgarr = [
-                document
-                    .getElementById("timeline-img-1")
-                    .getBoundingClientRect().top + viewportOffsetY,
-                document
-                    .getElementById("timeline-img-2")
-                    .getBoundingClientRect().top + viewportOffsetY,
-                document
-                    .getElementById("timeline-img-3")
-                    .getBoundingClientRect().top + viewportOffsetY,
-                document
-                    .getElementById("timeline-img-4")
-                    .getBoundingClientRect().top + viewportOffsetY,
-                document
-                    .getElementById("timeline-img-5")
-                    .getBoundingClientRect().top + viewportOffsetY,
-                document
-                    .getElementById("timeline-img-6")
-                    .getBoundingClientRect().top + viewportOffsetY,
-            ];
-
-            let rect_rel_abs_top =
-                rel.getBoundingClientRect().top + viewportOffsetY;
-            let pathlen = window.innerHeight + 0.6 * rel.offsetHeight;
-            let ini =
-                rect_rel_abs_top + 0.2 * rel.offsetHeight - window.innerHeight;
-
+                ((window.innerWidth - tel.offsetWidth - 14) / 2).toString() +
+                "px";
             window.addEventListener("resize", () => {
                 tel.style.left =
-                    ((window.innerWidth - tel.offsetWidth) / 2).toString() +
-                    "px";
-
-                viewportOffsetY = window.scrollY || window.pageYOffset;
-
-                rect_rel_abs_top =
-                    rel.getBoundingClientRect().top + viewportOffsetY;
-
-                rect_imgarr = [
-                    document
-                        .getElementById("timeline-img-1")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                    document
-                        .getElementById("timeline-img-2")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                    document
-                        .getElementById("timeline-img-3")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                    document
-                        .getElementById("timeline-img-4")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                    document
-                        .getElementById("timeline-img-5")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                    document
-                        .getElementById("timeline-img-6")
-                        .getBoundingClientRect().top + viewportOffsetY,
-                ];
-
-                pathlen = window.innerHeight + 0.6 * rel.offsetHeight;
-                ini =
-                    rect_rel_abs_top +
-                    0.2 * rel.offsetHeight -
-                    window.innerHeight;
+                    (
+                        (window.innerWidth - tel.offsetWidth - 14) /
+                        2
+                    ).toString() + "px";
             });
-
-            let last_region = -1;
-            let active_region = 0;
-
-            window.addEventListener(
-                "scroll",
-                () => {
-                    viewportOffsetY = window.scrollY || window.pageYOffset;
-
-                    if (
-                        (viewportOffsetY +
-                            window.innerHeight -
-                            rect_rel_abs_top) /
-                            rel.offsetHeight >=
-                        0.2
-                    ) {
-                        let per = (viewportOffsetY - ini) / pathlen;
-                        lel.style.height =
-                            ((per > 1 ? 1 : per) * 100).toString() + "%";
-
-                        for (let i = 0; i < 6; i++) {
-                            if (
-                                rect_imgarr[i] >=
-                                lel.offsetHeight + rect_rel_abs_top
-                            ) {
-                                last_region = active_region;
-                                active_region = i;
-                                if (active_region > last_region) {
-                                    console.log(
-                                        `down -> from ${last_region} to ${active_region}`
-                                    );
-                                    el_cardarr[last_region].style.opacity = "1";
-                                } else if (active_region < last_region) {
-                                    console.log(
-                                        `up -> from ${last_region} to ${active_region}`
-                                    );
-                                    el_cardarr[active_region].style.opacity =
-                                        "0";
-                                }
-                                break;
-                            } else if (i == 5) {
-                                last_region = active_region;
-                                active_region = 6;
-
-                                if (active_region > last_region) {
-                                    console.log(
-                                        `down -> from ${last_region} to ${active_region}`
-                                    );
-                                    el_cardarr[last_region].style.opacity = "1";
-                                } else if (active_region < last_region) {
-                                    console.log(
-                                        `up -> from ${last_region} to ${active_region}`
-                                    );
-                                    el_cardarr[active_region].style.opacity =
-                                        "0";
-                                }
-                            }
-                        }
-                    } else {
-                        lel.style.height = "0px";
-                    }
-                    lastv = viewportOffsetY;
-                },
-                { passive: true }
-            );
-
-            window.onbeforeunload = () => {
-                window.scrollTo(0, 0);
-            };
         </script>
     </body>
 </html>

@@ -1,20 +1,146 @@
 body {
-    /* background-image: url("../img/aibrain.jpg");
-    background-repeat: no-repeat;
-    background-size: contain; */
     user-select: none;
     background-color: #000000;
 }
 
-/* body::-webkit-scrollbar {
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--main-col-2);
+}
+::-webkit-scrollbar-thumb {
+    background: #6c1f7e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8e166a;
+}
+
+/* -------------------------------------------------- */
+
+.header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 90%;
+    padding: 1.3rem 5%;
+    /* background: rgba(0, 0, 0, 0.1); */
+    /* backdrop-filter: blur(10px); */
+    display: flex;
+    justify-content: space-between;
+    font-family: "poppins", sans-serif;
+}
+
+.header * {
+    margin: 0;
+    padding: 0;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: rgb(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+.header .navlogo {
+    display: inline-flex;
+    width: 130px;
+    height: 130px;
+
+    margin-top: -35px;
+    cursor: pointer;
+
+    margin-bottom: -70px;
+}
+
+.navbar a {
+    font-size: 1.15rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+}
+
+#check {
     display: none;
-} */
+}
+
+.icons {
+    font-size: 2.8rem;
+    color: #f0f0f0;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 5%;
+}
+
+/* breakpoints */
+@media (max-width: 790px) {
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked ~ .icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    #check:checked ~ .icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+    #check:checked ~ .navbar {
+        height: 17.7rem;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+    #check:checked ~ .navbar a {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(0.15s * var(--i));
+    }
+}
+
+/* -------------------------------------------------- */
 
 .hero-section {
     height: 600px;
-    background-image: url("../img/back.png");
+    background-image: url("../img/back.jpg");
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
 .glitch-text {
@@ -26,7 +152,7 @@ body {
     padding: 30px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    top: 100px;
+    top: 240px;
 }
 
 .glitch-text:before,
@@ -192,11 +318,6 @@ body {
     z-index: 1;
 }
 
-/* .timeline {
-    container for timeline
-    background: #2e364a;
-} */
-
 .timeline-frame {
     position: relative;
     max-width: 1200px;
@@ -207,9 +328,8 @@ body {
     position: relative;
     width: 50%;
 
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    /* background: rgba(0, 0, 0, 0.3); */
+    opacity: 1;
+    transition: opacity 0.4s linear;
 }
 
 .text-box {
@@ -248,6 +368,7 @@ body {
     left: calc(50% - 3px);
     width: 6px;
     background-color: white;
+    height: 100%;
 }
 
 .text-box h2 {
@@ -334,17 +455,12 @@ body {
     height: 600px;
 }
 
-/*=============== vars ===============*/
 :root {
-    /*========== Colors ==========*/
-    /*Color mode HSL(hue, saturation, lightness)*/
     --first-color: hsl(34, 52%, 54%);
     --first-color-light: hsl(34, 52%, 64%);
     --first-color-lighten: hsl(34, 52%, 68%);
     --black-color: hsl(0, 0%, 4%);
 
-    /*========== Font and typography ==========*/
-    /*.5rem = 8px | 1rem = 16px ...*/
     --body-font: "Montserrat", sans-serif;
     --second-font: "Smooch", cursive;
     --biggest-font-size: 6rem;
@@ -352,10 +468,9 @@ body {
     --normal-font-size: 0.938rem;
     --small-font-size: 0.813rem;
 
-    /*========== Font weight ==========*/
     --font-regular: 400;
     --font-semi-bold: 600;
-    /*========== z index ==========*/
+
     --z-tooltip: 10;
     --z-fixed: 100;
 
@@ -367,7 +482,6 @@ body {
     --main-col-5: #000000;
 }
 
-/* Responsive typography */
 @media screen and (min-width: 1150px) {
     :root {
         --biggest-font-size: 17rem;
@@ -377,8 +491,6 @@ body {
         --small-font-size: 0.875rem;
     }
 }
-
-/*=============== rest ===============*/
 
 .merch > * {
     box-sizing: border-box;
@@ -695,7 +807,6 @@ body {
     margin-right: 50px;
     margin-bottom: 20px;
     margin-top: 20px;
-    /* border: solid rgb(255, 0, 0); */
     text-align: center;
 }
 
@@ -715,7 +826,6 @@ body {
 }
 
 .partners-swiper-container {
-    /* border: 1px solid red; */
     width: 80%;
 }
 

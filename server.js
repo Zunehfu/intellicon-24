@@ -274,12 +274,29 @@ const addQuestion = async (req, res, next) => {
     }
 };
 
-app.get("/register", getRegisterPage);
+// SSR routes ------------------------------------------------------
+// Admin only routes
 app.get("/admin", getAdminLogin);
 app.post("/admin", verifyAdminLogin);
 app.get("/competitors", protectRoute, showCompetitors);
-app.post("/competitors", addCompetitor);
-app.post("/questions", addQuestion);
 app.get("/questions", protectRoute, showQuestions);
 
-app.listen(3000);
+// User routes
+app.get("/register", getRegisterPage);
+app.post("/competitors", addCompetitor);
+app.post("/questions", addQuestion);
+// -----------------------------------------------------------------
+
+app.listen(process.env.port, (err) => {
+    if (err) {
+        console.log(
+            "Error when starting the server on PORT -> ",
+            process.env.port
+        );
+    } else {
+        console.log(
+            "Server successfully started on PORT -> ",
+            process.env.port
+        );
+    }
+});
